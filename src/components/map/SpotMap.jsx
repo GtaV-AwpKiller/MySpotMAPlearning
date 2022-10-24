@@ -19,9 +19,13 @@ function SpotMap() {
         });
 
     return !isGeolocationAvailable ? (
-        <div>Your browser does not support Geolocation</div>
+        <div style={{ textAlign: "center", padding: "50vh", color: "white" }}>
+            Your browser does not support Geolocation
+        </div>
     ) : !isGeolocationEnabled ? (
-        <div>Geolocation is not enabled</div>
+        <div style={{ textAlign: "center", padding: "50vh", color: "white" }}>
+            Geolocation is not enabled
+        </div>
     ) : coords ? (
         <div className={styles.map__wrapper}>
             <div className={styles.map__content}>
@@ -37,7 +41,7 @@ function SpotMap() {
                         // ref={mapRef}
                     />
                     <Marker position={[coords.latitude, coords.longitude]}>
-                        <Popup>Я ЗНАЮ ГДЕ ТЫ ШЛЮХА</Popup>
+                        <Popup>Я ЗНАЮ ГДЕ ТЫ</Popup>
                     </Marker>
                 </MapContainer>
             </div>
