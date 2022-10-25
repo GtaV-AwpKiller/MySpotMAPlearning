@@ -3,6 +3,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    cursor: none;
 }
 
 /* Убираем внутренние отступы */
@@ -34,6 +35,7 @@ ul {
 }
 html {
     scroll-behavior: smooth;
+
     /* overflow: hidden; */
 }
 /* Выставляем основные настройки по-умолчанию для body */
@@ -46,6 +48,7 @@ body {
     line-height: 1.5;
     background-color: #050505;
     transition: background-color 200ms;
+
     /* overflow: hidden; */
 }
 
