@@ -24,15 +24,13 @@
             border-radius: 4px;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
             padding-left: 8px;
-            &::after {
-                content: "sasadsadds";
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: aqua;
-                font-size: 564px;
-                background-image: url("https://cdn-icons-png.flaticon.com/512/67/67347.png");
-            }
+        }
+        & img {
+            cursor: pointer;
+            transform: translateX(1100%) translateY(-120%);
+            position: absolute;
+            max-width: 24px;
+            height: auto;
         }
     }
     &__button {

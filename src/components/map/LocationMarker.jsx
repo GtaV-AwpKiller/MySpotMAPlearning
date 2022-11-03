@@ -1,27 +1,15 @@
-import React, { useRef } from "react";
-import { useState } from "react";
-import { Marker, Popup, useMapEvents } from "react-leaflet";
+import React from "react";
 
 import styles from "./location.module.scss";
 
-export default function LocationMarker() {
-    const [position, setPosition] = useState(null);
-    const myPos = useRef(null);
+export default function LocationMarker({ lat, lng, mapRef }) {
+    console.log(mapRef?.current);
 
-    const [map, setMap] = useState(null);
+    const showMyLoc = () => {
+        mapRef.current.flyTo([lat, lng]);
+    };
 
-    // setMap(() => {
-    //     useMapEvents({
-    //         click() {
-    //             setMap.locate();
-    //         },
-    //         locationfound(e) {
-    //             setPosition(e.latlng);
-    //             setMap.flyTo(e.latlng, setMap.getZoom());
-    //         },
-    //     });
-    // });
-
+    // const [position, setPosition] = useState(null);
     // const map = useMapEvents({
     //     click() {
     //         map.locate();
@@ -32,16 +20,55 @@ export default function LocationMarker() {
     //     },
     // });
 
+    // ------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
+    // const [location, setLocation] = useState({
+    //     loaded: false,
+    //     coord: { lat: "", lng: "" },
+    // });
+
+    // const onSuccess = (location) => {
+    //     setLocation({
+    //         loaded: true,
+    //         coord: {
+    //             lat: location.coords.latitude,
+    //             lng: location.coords.longitude,
+    //         },
+    //     });
+    // };
+
+    // const onError = (error) => {
+    //     setLocation({
+    //         loaded: true,
+    //         error,
+    //     });
+    // };
+
+    // useEffect(() => {
+    //     if (!("geolocation" in navigator)) {
+    //         onError({
+    //             code: 0,
+    //             message: "geoloc is not supp",
+    //         });
+    //     }
+
+    //     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    // }, []);
+    // ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+    // ------------------------------------------------------------------------
+
     return (
-        <div className={styles.MyPosWrapper}>
-            <div className={styles.MyPosition} ref={myPos}>
+        <div className={styles.MyPosWrapper} onClick={showMyLoc}>
+            <div className={styles.MyPosition}>
                 <img
                     style={{ cursor: "pointer", filter: "invert(100%)" }}
                     src="https://cdn-icons-png.flaticon.com/512/1812/1812247.png"
                     alt=""
                 />
             </div>
-            {/* <Marker position={position}></Marker> */}
+            {/* {position === null ? null : <Marker position={position}></Marker>} */}
         </div>
     );
 }
